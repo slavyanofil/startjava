@@ -1,6 +1,5 @@
 public class Variable {   
     public static void main(String[] args) {
-
         byte cpus=6;
         short pagefileSize=18749;
         int ramSize=16384;
@@ -9,7 +8,6 @@ public class Variable {
         double connectSpeed=94.8;
         char cpuFamily='i';
         boolean personal=true;
-
         System.out.println("- PC info -");
         System.out.println("CPUs "+cpus);
         System.out.println("Pagefile size "+pagefileSize+"MB");
