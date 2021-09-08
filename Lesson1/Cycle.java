@@ -25,7 +25,7 @@ public class Cycle {
             if (k%2 != 0) {
                 result+=k;
             }
-        k++;
+            k++;
         } while (k <= 20);
         System.out.println("Сумма нечётных чисел [10;20] = " + result);
     }
