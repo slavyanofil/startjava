@@ -13,20 +13,20 @@ public class Cycle {
         int j = 6;
         while (j >= -6) {
             System.out.print(j + " ");
-            j-=2;
+            j -= 2;
         }
         System.out.println();
 
         //Вывод суммы нечётных чисел
         //первое число диапазона
         int k = 10;
-        int result = 0;
-        do{
-            if (k%2 != 0) {
-                result+=k;
+        int sumOdd = 0;
+        do {
+            if (k % 2 != 0) {
+                sumOdd += k;
             }
             k++;
         } while (k <= 20);
-        System.out.println("Сумма нечётных чисел [10;20] = " + result);
+        System.out.println("Сумма нечётных чисел [10;20] = " + sumOdd);
     }
 }
