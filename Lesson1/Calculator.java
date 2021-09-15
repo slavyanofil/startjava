@@ -3,30 +3,36 @@ public class Calculator {
         int number1 = 3;
         int number2 = 2;
         char operation = '^';
-        int sum;
+        int result;
         if (number1 > 0 & number2 > 0) {
             switch (operation) {
-                case '+': sum = number1 + number2;
-                    System.out.println(number1 + " + " + number2 + " = " + sum);
+                case '+': 
+                    result = number1 + number2;
+                    System.out.println(number1 + " + " + number2 + " = " + result);
                     break;
-                case '-': int sub = number1 - number2;
-                    System.out.println(number1 + " - " + number2 + " = " + sub);
+                case '-': 
+                    result = number1 - number2;
+                    System.out.println(number1 + " - " + number2 + " = " + result);
                     break;
-                case '*': int mult = number1 * number2;
-                    System.out.println(number1 + " * " + number2 + " = " + mult);
+                case '*': 
+                    result = number1 * number2;
+                    System.out.println(number1 + " * " + number2 + " = " + result);
                     break;
-                case '/': float div = (float) number1 / number2;
+                case '/': 
+                    float div = (float) number1 / number2;
                     System.out.println(number1 + " / " + number2 + " = " + div);
                     break;
-                case '^': int resultNumber = 1;
+                case '^': 
+                    result = 1;
                     System.out.print(number1 + " ^ " + number2 +" = ");
                     for (int i = 0; i < number2; i++) {
-                        resultNumber *= number1;
+                        result *= number1;
                     }
-                    System.out.println(resultNumber);
+                    System.out.println(result);
                     break;
-                case '%': int mod = number1 % number2;
-                    System.out.println(number1 + " % " + number2 + " = " + mod);
+                case '%': 
+                    result = number1 % number2;
+                    System.out.println(number1 + " % " + number2 + " = " + result);
                     break;
                 default: System.out.println("Недопустимая операция");
             }

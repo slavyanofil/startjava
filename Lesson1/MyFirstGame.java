@@ -1,7 +1,7 @@
 public class MyFirstGame {   
     public static void main(String[] args) {
         int selectedNumber = 50;
-        int targetNumber = (int) (Math.random() * 100);
+        int targetNumber = (int) (Math.random() * 100 + 0.1);
         System.out.println("Компьютер загадал число [0; 100]. Это: " + targetNumber);
         System.out.println("Вариант игрока: " + selectedNumber);
         while (selectedNumber != targetNumber) {
