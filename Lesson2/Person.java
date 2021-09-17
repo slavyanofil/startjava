@@ -5,9 +5,6 @@ public class Person {
     float weight = 70.5f;
     int age = 50;
 
-    public Person() {
-    }
-
     public void move() {
     }
 
