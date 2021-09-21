@@ -1,6 +1,6 @@
 public class Player {
-    String name;
-    int number;
+    private String name;
+    private int number;
 
     public Player () {
     }
