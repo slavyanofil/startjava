@@ -1,4 +1,5 @@
 import java.util.Scanner;
+
 public class JaegerTest {
     public static void main(String[] args) {
         Jaeger jaegerOne = new Jaeger();
@@ -16,5 +17,4 @@ public class JaegerTest {
         System.out.println("modelName = " + jaegerTwo.getModelName());
         System.out.println("modelName = " + jaegerThree.getModelName());
     }
-
 }
