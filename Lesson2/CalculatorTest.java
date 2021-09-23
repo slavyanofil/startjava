@@ -3,20 +3,20 @@ import java.util.Scanner;
 public class CalculatorTest {
     public static void main(String[] args) {
         Calculator calculator = new Calculator();
-        Scanner s = new Scanner(System.in);
-        start(calculator, s);
-        String answer = s.nextLine();
+        Scanner scanner = new Scanner(System.in);
+        String answer = "yes";
         while (!answer.equals("no")) {
             if (answer.equals("yes")) {
-                start(calculator, s);
-            } else {
-                System.out.print("Хотите продолжить вычисления? [yes/no]: ");
+                inputMathExpression(calculator, scanner);
+                calculator.calculate();
             }
-            answer = s.nextLine();
+            System.out.print("Хотите продолжить вычисления? [yes/no]: ");
+            scanner.nextLine();
+            answer = scanner.nextLine();
         }
     }
 
-    private static void start(Calculator calc, Scanner s) {
+    private static void inputMathExpression(Calculator calc, Scanner s) {
         System.out.println();
         System.out.print("Введите первое число: ");
         calc.setNumber1(s.nextInt());
@@ -24,6 +24,5 @@ public class CalculatorTest {
         calc.setOperation(s.next().charAt(0));
         System.out.print("Введите второе число: ");
         calc.setNumber2(s.nextInt());
-        calc.getResult();
     }
 }

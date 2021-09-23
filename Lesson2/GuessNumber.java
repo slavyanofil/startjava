@@ -5,7 +5,7 @@ public class GuessNumber {
     private Player p1;
     private Player p2;
     private Player currentPlayer;
-    private int turn = 1;
+    private int turn;
     private Scanner scanner = new Scanner(System.in);
 
     public GuessNumber(Player p1, Player p2) {
@@ -14,37 +14,23 @@ public class GuessNumber {
     }
 
     public void start() {
-        takeFirstTurn();
-        while (currentPlayer.getNumber() != targetNumber) {
-            if (currentPlayer.getNumber() < targetNumber) {
-                System.out.println("Данное число меньше того, что загадал компьютер");
-                System.out.println();
-            } else if (currentPlayer.getNumber() > targetNumber) {
-                System.out.println("Данное число больше того, что загадал компьютер");
-                System.out.println();
-            }
-            if (currentPlayer == p1) {
-                currentPlayer = p2;
-            } else {
-                currentPlayer = p1;
-            }
-            takeNextTurn();
-        }
-        System.out.println("Поздравляю, " + currentPlayer.getName() + "! Вы победили!");
-    }
-
-    private void takeFirstTurn() {
         turn = 1;
+        currentPlayer = p1;
         targetNumber = (int) (Math.random() * 100 + 1);
         System.out.println("Компьютер загадал число [0; 100]. Подсказка: 11 + Х = " + (targetNumber + 11));
-        currentPlayer = p1;
-        System.out.println("Ход # 1");
-        System.out.print(currentPlayer.getName() +", введите Ваше число: ");
-        currentPlayer.setNumber(scanner.nextInt());
-        System.out.println();
+        while (currentPlayer.getNumber() != targetNumber) {
+            if (currentPlayer.getNumber() < targetNumber && turn != 1) {
+                System.out.println("Данное число меньше того, что загадал компьютер\n");
+            } else if (currentPlayer.getNumber() > targetNumber && turn != 1) {
+                System.out.println("Данное число больше того, что загадал компьютер\n");
+            }
+            currentPlayer = (currentPlayer == p1) ? p2 : p1;
+            makeMove();
+        }
+        System.out.println("Поздравляю, " + currentPlayer.getName() + "! Вы победили!\n");
     }
 
-    private void takeNextTurn() {
+    private void makeMove() {
         System.out.println("Ход # " + turn);
         System.out.print(currentPlayer.getName() +", введите Ваше число: ");
         currentPlayer.setNumber(scanner.nextInt());
