@@ -14,27 +14,27 @@ public class GuessNumber {
     }
 
     public void start() {
-        turn = 1;
+        turn = 0;
         currentPlayer = p1;
         targetNumber = (int) (Math.random() * 100 + 1);
         System.out.println("Компьютер загадал число [0; 100]. Подсказка: 11 + Х = " + (targetNumber + 11));
-        while (currentPlayer.getNumber() != targetNumber) {
-            if (currentPlayer.getNumber() < targetNumber && turn != 1) {
+        while (makeMove()) {
+            if (currentPlayer.getNumber() < targetNumber) {
                 System.out.println("Данное число меньше того, что загадал компьютер\n");
-            } else if (currentPlayer.getNumber() > targetNumber && turn != 1) {
+            } else if (currentPlayer.getNumber() > targetNumber) {
                 System.out.println("Данное число больше того, что загадал компьютер\n");
             }
             currentPlayer = (currentPlayer == p1) ? p2 : p1;
-            makeMove();
         }
         System.out.println("Поздравляю, " + currentPlayer.getName() + "! Вы победили!\n");
     }
 
-    private void makeMove() {
+    private boolean makeMove() {
+        turn++;
         System.out.println("Ход # " + turn);
         System.out.print(currentPlayer.getName() +", введите Ваше число: ");
         currentPlayer.setNumber(scanner.nextInt());
         System.out.println();
-        turn++;
+        return currentPlayer.getNumber() != targetNumber;
     }
 }

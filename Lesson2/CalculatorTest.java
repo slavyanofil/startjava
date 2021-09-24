@@ -11,18 +11,17 @@ public class CalculatorTest {
                 calculator.calculate();
             }
             System.out.print("Хотите продолжить вычисления? [yes/no]: ");
-            scanner.nextLine();
             answer = scanner.nextLine();
         }
     }
 
     private static void inputMathExpression(Calculator calc, Scanner s) {
-        System.out.println();
-        System.out.print("Введите первое число: ");
+        System.out.print("\nВведите первое число: ");
         calc.setNumber1(s.nextInt());
         System.out.print("Введите знак математической операции: [+, -, *, /, ^, %]: ");
         calc.setOperation(s.next().charAt(0));
         System.out.print("Введите второе число: ");
         calc.setNumber2(s.nextInt());
+        s.nextLine();
     }
 }

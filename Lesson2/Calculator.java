@@ -1,7 +1,8 @@
 public class Calculator {
-        private int number1 = 3;
-        private int number2 = 2;
-        private char operation = '^';
+        private int number1;
+        private int number2;
+        private char operation;
+        private double result;
 
         public void setNumber1(int number1) {
             this.number1 = number1;
@@ -16,24 +17,19 @@ public class Calculator {
         }
 
         public void calculate() {
-            double result;
             if (number1 > 0 && number2 > 0) {
                 switch (operation) {
                     case '+': 
                         result = number1 + number2;
-                        System.out.println(number1 + " + " + number2 + " = " + result);
                         break;
                     case '-': 
                         result = number1 - number2;
-                        System.out.println(number1 + " - " + number2 + " = " + result);
                         break;
                     case '*': 
                         result = number1 * number2;
-                        System.out.println(number1 + " * " + number2 + " = " + result);
                         break;
                     case '/': 
                         result = (double) number1 / number2;
-                        System.out.println(number1 + " / " + number2 + " = " + result);
                         break;
                     case '^': 
                         result = 1;
@@ -45,12 +41,12 @@ public class Calculator {
                         break;
                     case '%': 
                         result = number1 % number2;
-                        System.out.println(number1 + " % " + number2 + " = " + result);
                         break;
                     default: System.out.println("Недопустимая операция");
                 }
             } else {
                 System.out.println("Числа должны быть положительными");
             }
+            System.out.println("" + number1 + operation + number2 + " = " + result);
         }
 }
