@@ -2,7 +2,6 @@ public class Calculator {
         private int number1;
         private int number2;
         private char operation;
-        private double result;
 
         public void setNumber1(int number1) {
             this.number1 = number1;
@@ -17,6 +16,7 @@ public class Calculator {
         }
 
         public void calculate() {
+            double result = 0;
             if (number1 > 0 && number2 > 0) {
                 switch (operation) {
                     case '+': 
