@@ -33,11 +33,9 @@ public class Calculator {
                     break;
                 case '^': 
                     result = 1;
-                    System.out.print(number1 + " ^ " + number2 +" = ");
                     for (int i = 0; i < number2; i++) {
                         result *= number1;
                     }
-                    System.out.println(result);
                     break;
                 case '%': 
                     result = number1 % number2;
