@@ -1,4 +1,4 @@
-package com.startjava.lesson_2_3.calculator;
+package com.startjava.lesson_2_3_4.calculator;
 
 import java.util.Scanner;
 
@@ -10,7 +10,7 @@ public class CalculatorTest {
         while (!answer.equals("no")) {
             if (answer.equals("yes")) {
                 inputMathExpression(calculator, scanner);
-                calculator.calculate();
+                System.out.println(calculator.calculate());
             }
             System.out.print("Хотите продолжить вычисления? [yes/no]: ");
             answer = scanner.nextLine();
@@ -18,12 +18,11 @@ public class CalculatorTest {
     }
 
     private static void inputMathExpression(Calculator calc, Scanner s) {
-        System.out.print("\nВведите первое число: ");
-        calc.setNumber1(s.nextInt());
-        System.out.print("Введите знак математической операции: [+, -, *, /, ^, %]: ");
-        calc.setOperation(s.next().charAt(0));
-        System.out.print("Введите второе число: ");
-        calc.setNumber2(s.nextInt());
-        s.nextLine();
+        System.out.print("\nВведите математическое выражение в формате: a [+, -, /, *, ^, %] b : ");
+        String mathExpression = s.nextLine();
+        String[] mathExpressionArray = mathExpression.split(" ");
+        calc.setNumber1(Integer.parseInt(mathExpressionArray[0]));
+        calc.setOperation(mathExpressionArray[1].charAt(0));
+        calc.setNumber2(Integer.parseInt(mathExpressionArray[2]));
     }
 }

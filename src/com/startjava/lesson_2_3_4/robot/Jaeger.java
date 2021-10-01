@@ -1,6 +1,6 @@
-package com.startjava.lesson_2_3.robot;
+package com.startjava.lesson_2_3_4.robot;
 
-public class Jaeger {   
+public class Jaeger {
     private String modelName;
     private String mark;
     private String origin;
@@ -25,7 +25,7 @@ public class Jaeger {
     }
 
     public void setModelName(String modelName) {
-        if(modelName == "") {
+        if(modelName.equals("")) {
             System.out.println("Пустая строка");
         } else {
             this.modelName = modelName;
