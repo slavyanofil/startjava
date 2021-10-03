@@ -20,9 +20,6 @@ public class CalculatorTest {
     private static void inputMathExpression(Calculator calc, Scanner s) {
         System.out.print("\nВведите математическое выражение в формате: a [+, -, /, *, ^, %] b : ");
         String mathExpression = s.nextLine();
-        String[] mathExpressionArray = mathExpression.split(" ");
-        calc.setNumber1(Integer.parseInt(mathExpressionArray[0]));
-        calc.setOperation(mathExpressionArray[1].charAt(0));
-        calc.setNumber2(Integer.parseInt(mathExpressionArray[2]));
+        calc.setMathExpression(mathExpression);
     }
 }

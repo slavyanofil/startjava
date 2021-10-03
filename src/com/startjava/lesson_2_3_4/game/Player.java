@@ -1,25 +1,26 @@
 package com.startjava.lesson_2_3_4.game;
 
+import java.util.Arrays;
+
 public class Player {
     private String name;
-    private int number;
-    private int[] allNumbers = new int[10];
-    private int attempt = 0;
+    private int[] allNumbers;
+    private int attempt;
 
-    public Player(String name) {
+    public Player(String name, int attemptsLimit) {
         this.name = name;
+        allNumbers = new int[attemptsLimit];
     }
 
     public String getName() {
         return name;
     }
 
-    public int getNumber() {
-        return number;
+    public int getNumber(int i) {
+        return allNumbers[i];
     }
 
     public void setNumber(int number, int i) {
-        this.number = number;
         allNumbers[i] = number;
     }
 
@@ -36,6 +37,6 @@ public class Player {
     }
 
     public int[] getAllNumbers() {
-        return allNumbers;
+        return Arrays.copyOf(allNumbers, allNumbers.length);
     }
 }

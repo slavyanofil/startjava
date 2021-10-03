@@ -1,5 +1,7 @@
 package com.startjava.lesson_2_3_4.calculator;
 
+import java.util.Scanner;
+
 public class Calculator {
     private int number1;
     private int number2;
@@ -46,5 +48,12 @@ public class Calculator {
         }
         System.out.print("Результат операции: " + number1 + operation + number2 + " = ");
         return result;
+    }
+
+    public void setMathExpression(String s) {
+        String[] mathExpressionArray = s.split(" ");
+        setNumber1(Integer.parseInt(mathExpressionArray[0]));
+        setOperation(mathExpressionArray[1].charAt(0));
+        setNumber2(Integer.parseInt(mathExpressionArray[2]));
     }
 }
