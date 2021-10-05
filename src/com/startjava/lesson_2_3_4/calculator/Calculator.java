@@ -19,6 +19,13 @@ public class Calculator {
         this.operation = operation;
     }
 
+    public void setMathExpression(String s) {
+        String[] mathExpression = s.split(" ");
+        setNumber1(Integer.parseInt(mathExpression[0]));
+        setOperation(mathExpression[1].charAt(0));
+        setNumber2(Integer.parseInt(mathExpression[2]));
+    }
+
     public double calculate() {
         double result = 0;
         if (number1 > 0 && number2 > 0) {
@@ -32,28 +39,22 @@ public class Calculator {
                 case '*':
                     result = Math.multiplyExact(number1, number2);
                     break;
-                case '/': 
+                case '/':
                     result = (double) number1 / number2;
                     break;
-                case '^': 
+                case '^':
                     result = Math.pow(number1, number2);
                     break;
                 case '%':
                     result = Math.floorMod(number1, number2);
                     break;
-                default: System.out.println("Недопустимая операция");
+                default:
+                    System.out.println("Недопустимая операция");
             }
         } else {
             System.out.println("Числа должны быть положительными");
         }
         System.out.print("Результат операции: " + number1 + operation + number2 + " = ");
         return result;
-    }
-
-    public void setMathExpression(String s) {
-        String[] mathExpressionArray = s.split(" ");
-        setNumber1(Integer.parseInt(mathExpressionArray[0]));
-        setOperation(mathExpressionArray[1].charAt(0));
-        setNumber2(Integer.parseInt(mathExpressionArray[2]));
     }
 }
