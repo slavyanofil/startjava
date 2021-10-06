@@ -15,6 +15,8 @@ public class GuessNumber {
         playersList[0] = p1;
         playersList[1] = p2;
         this.attemptsLimit = attemptsLimit;
+        p1.initAllNumbers(attemptsLimit);
+        p2.initAllNumbers(attemptsLimit);
     }
 
     public void start() {
@@ -30,8 +32,8 @@ public class GuessNumber {
     private void init() {
         turn = 0;
         currentPlayer = playersList[0];
-        Arrays.fill(playersList[0].getAllNumbers(), 0, playersList[0].getAttempt(), 0);
-        Arrays.fill(playersList[1].getAllNumbers(), 0, playersList[1].getAttempt(), 0);
+        playersList[0].resetAllNumbers();
+        playersList[1].resetAllNumbers();
         playersList[0].setAttempt(0);
         playersList[1].setAttempt(0);
     }
@@ -60,19 +62,23 @@ public class GuessNumber {
 
     private boolean isPlayerRight(Player p) {
         String information;
-        if (p.getCurrentNumber(p.getAttempt() - 1) == targetNumber) {
+        if (p.getCurrentNumber() == targetNumber) {
             System.out.println("Игрок " + p.getName() + " угадал число " + targetNumber + " с " + p.getAttempt() + " попытки.");
             System.out.println("Поздравляю, " + p.getName() + "! Вы победили!\n");
             return true;
         } else
-            information = (p.getCurrentNumber(p.getAttempt() - 1) < targetNumber) ? "меньше" : "больше";
+            information = (p.getCurrentNumber() < targetNumber) ? "меньше" : "больше";
         System.out.println("Данное число " + information + " того, что загадал компьютер.\n");
         return false;
     }
 
     private void showPlayerNumbers() {
         for (Player p : playersList) {
-            System.out.println("Числа игрока " + p.getName() + " : " + p.getAllNumbersToString());
+            System.out.print("Числа игрока " + p.getName() + " : ");
+            for (int i : Arrays.copyOf(p.getAllNumbers(), p.getAttempt())) {
+                System.out.print(i + " ");
+            }
+            System.out.println();
         }
     }
 }

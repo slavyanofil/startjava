@@ -4,29 +4,19 @@ import java.util.Arrays;
 
 public class Player {
     private String name;
-    private int playerNumber;
     private int[] allNumbers;
     private int attempt;
 
-    public Player(int number) {
-        this.playerNumber = number;
-    }
-
-    public Player(String name, int attemptsLimit) {
+    public Player(String name) {
         this.name = name;
-        allNumbers = new int[attemptsLimit];
     }
 
     public String getName() {
         return name;
     }
 
-    public int getPlayerNumber() {
-        return playerNumber;
-    }
-
-    public int getCurrentNumber(int i) {
-        return allNumbers[i];
+    public int getCurrentNumber() {
+        return allNumbers[attempt - 1];
     }
 
     public void setNumber(int number, int i) {
@@ -46,14 +36,15 @@ public class Player {
     }
 
     public int[] getAllNumbers() {
-        return Arrays.copyOf(allNumbers, allNumbers.length);
+        return Arrays.copyOf(allNumbers, attempt);
     }
 
-    public String getAllNumbersToString() {
-        String s = "";
-        for (int i : Arrays.copyOf(allNumbers, attempt)) {
-            s += i + " ";
-        }
-        return s;
+    public void initAllNumbers(int i) {
+        allNumbers = new int[i];
     }
+
+    public void resetAllNumbers() {
+        Arrays.fill(allNumbers, 0, getAttempt(), 0);
+    }
+
 }
