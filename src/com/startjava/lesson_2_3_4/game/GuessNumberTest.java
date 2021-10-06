@@ -4,15 +4,14 @@ import java.util.Scanner;
 
 public class GuessNumberTest {
 
-    static Scanner scanner;
+    static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
-        scanner = new Scanner(System.in);
         System.out.println("Игра 'Угадай число' запущена");
         System.out.print("Укажите лимит попыток каждого игрока: ");
         int countAttempts = scanner.nextInt();
         scanner.nextLine();
-        GuessNumber game = new GuessNumber(createPlayer(1), createPlayer(2), countAttempts);
+        GuessNumber game = new GuessNumber(createPlayer(1, countAttempts), createPlayer(2, countAttempts), countAttempts);
         String answer = "yes";
         while (!answer.equals("no")) {
             if (answer.equals("yes")) {
@@ -23,8 +22,8 @@ public class GuessNumberTest {
         }
     }
 
-    private static Player createPlayer(int i) {
+    private static Player createPlayer(int i, int countAttempts) {
         System.out.print("Введите имя игрока " + i + " : ");
-        return new Player(scanner.nextLine());
+        return new Player(scanner.nextLine(), countAttempts);
     }
 }

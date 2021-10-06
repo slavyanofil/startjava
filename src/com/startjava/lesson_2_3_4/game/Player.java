@@ -7,8 +7,9 @@ public class Player {
     private int[] allNumbers;
     private int attempt;
 
-    public Player(String name) {
+    public Player(String name, int attemptsLimit) {
         this.name = name;
+        allNumbers = new int[attemptsLimit];
     }
 
     public String getName() {
@@ -19,8 +20,8 @@ public class Player {
         return allNumbers[attempt - 1];
     }
 
-    public void setNumber(int number, int i) {
-        allNumbers[i] = number;
+    public void setNumber(int number) {
+        allNumbers[attempt] = number;
     }
 
     public int getAttempt() {
@@ -39,12 +40,7 @@ public class Player {
         return Arrays.copyOf(allNumbers, attempt);
     }
 
-    public void initAllNumbers(int i) {
-        allNumbers = new int[i];
-    }
-
     public void resetAllNumbers() {
-        Arrays.fill(allNumbers, 0, getAttempt(), 0);
+        Arrays.fill(allNumbers, 0, attempt, 0);
     }
-
 }
