@@ -1,7 +1,6 @@
 -- create database
 
-CREATE TABLE Jaegers
-(
+CREATE TABLE Jaegers (
     id        SERIAL PRIMARY KEY,
     modelName TEXT,
     mark      TEXT,
